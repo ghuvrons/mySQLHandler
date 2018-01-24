@@ -64,7 +64,7 @@ class mySQLHandler:
 		print sql
 		try:
 			self.newConnection()
-			self.execute(sql)
+			self.cursor.execute(sql)
 			self.db.commit()
 			return True
 		except:
@@ -88,7 +88,7 @@ class mySQLHandler:
 		sql = "UPDATE "+table+" SET "+str_data+" WHERE "+_where
 		try:
 			self.newConnection()
-			self.execute(sql)
+			self.cursor.execute(sql)
 			self.db.commit()
 			return True
 		except:
@@ -112,7 +112,7 @@ class mySQLHandler:
 		sql = "DELETE FROM "+table+" WHERE "+_where
 		try:
 			self.newConnection()
-			self.execute(sql)
+			self.cursor.execute(sql)
 			self.db.commit()
 			return True
 		except:
@@ -133,7 +133,7 @@ class mySQLHandler:
 		sql = "SELECT "+column+" FROM "+table+" WHERE "+_where
 		try:
 			self.newConnection()
-			self.execute(sql)
+			self.cursor.execute(sql)
 			results = self.cursor.fetchall()
 			return results
 		except:
